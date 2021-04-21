@@ -1,22 +1,22 @@
 import random
 
-def vibor(n):
+def vibor(n): #Функция рандомного выбора дейсвий хода
     a = random.choice([1,2,3])
     if person2.health<35 and n=="Человек":
         print ("Здоровье компьютера меньше 35 шанс на ваш промах и его исцеление увеличен")
         a = random.choice([2,3])
     z = 0
-    if a==1:
+    if a==1: #Выбор 1 диапазон поражения большой
         z=random.randrange(10,35)
         z*=-1
-    if a==2:
+    if a==2: #Выбор 2 диапазон поражения небольшой
         z = random.randrange(10,15)
         z *= -1
-    if a==3:
+    if a==3: #Выбор 3 востановление здоровья в дипазоне
         z = random.randrange(18,25)
     return (z,a)
 
-class Person:
+class Person: # Класс определяющий Компьютер и Человек
     def __init__(self, name):
         self.name = name  # устанавливаем имя
         self.health=100
@@ -36,7 +36,7 @@ person1 = Person("Человек")
 person2= Person("Компьютер")
 
 while person1.health >0 and person2.health>0: #Цикл пока здоровье одного из участников не будет равно 0
-    name=random.choice(["Человек","Компьютер"])
+    name=random.choice(["Человек","Компьютер"]) #Рандомный выбор чей ход
     print("-----------ХОД ",name+"а-------------")
     cv, a1 = vibor(str(name))
     if name=="Человек":
